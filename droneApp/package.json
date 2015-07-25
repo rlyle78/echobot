@@ -1,0 +1,25 @@
+{
+  "name": "EchoBotDrone",
+  "description": "Echo bot Drone App",
+  "version": "0.0.1",
+  "main": "rollingspider.js",
+  "dependencies": {
+    "noble": "^1.0.2",
+    "pubnub": "^3.7.13",
+    "rolling-spider": ""
+  },
+  "files": [
+    "LICENSE",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "contributors": [
+    "rlyle78@gmail.com"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  }
+}

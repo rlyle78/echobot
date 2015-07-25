@@ -1,0 +1,22 @@
+{
+  "name": "echobot",
+  "version": "0.0.1",
+  "description": "amazon echo drone bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rlyle78/echobot.git"
+  },
+  "author": "Ron Dagdag",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rlyle78/echobot/issues"
+  },
+  "dependencies": {
+    "pubnub": "^3.7.13"
+  },
+  "homepage": "https://github.com/rlyle78/echobot#readme"
+}
