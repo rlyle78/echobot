@@ -6,7 +6,8 @@
   "dependencies": {
     "noble": "^1.0.2",
     "pubnub": "^3.7.13",
-    "rolling-spider": ""
+    "rolling-spider": "",
+    "temporal": "^0.4.0"
   },
   "files": [
     "LICENSE",

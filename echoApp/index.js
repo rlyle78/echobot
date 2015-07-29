@@ -92,7 +92,7 @@ Echobot.prototype.intentHandlers = {
                     message   : initiateMessage,
                     callback  : function(e) { 
                         console.log( "SUCCESS!", e ); 
-                         response.ask("Drone is ready to fly");
+                        response.tell("Drone is ready to fly");
                         },
                     error     : function(e) { 
                         response.tellWithCard("Could not connect", "Drone", "Could not connect");
@@ -109,8 +109,8 @@ Echobot.prototype.intentHandlers = {
                     channel   : 'my_channel',
                     message   : takeOffmessage,
                     callback  : function(e) { 
-                        console.log( "SUCCESS!", e ); 
-                         response.ask("Drone is flying");
+                         console.log( "SUCCESS!", e ); 
+                         response.tell("Drone is flying");
                         },
                     error     : function(e) { 
                         response.tellWithCard("Could not connect", "Drone", "Could not connect");
@@ -124,12 +124,13 @@ Echobot.prototype.intentHandlers = {
                         "sessionId" : session.sessionId
                     };
                console.log(pubnub.get_version());
+               //response.setShouldEndSession(true);
                 pubnub.publish({ 
                     channel   : 'my_channel',
                     message   : landMessage,
                     callback  : function(e) { 
-                        console.log( "SUCCESS!", e ); 
-                         response.ask("Going down");
+                         console.log( "SUCCESS!", e ); 
+                         response.tell("Going down");
                         },
                     error     : function(e) { 
                         response.tellWithCard("Could not connect", "Drone", "Could not connect");
@@ -137,7 +138,7 @@ Echobot.prototype.intentHandlers = {
                 });          
     },
     default: function (intent, session, response) {
-        response.ask("I could not understand, please repeat");
+        response.ask("I could not understand, please repeat.");
     },
     
 };

@@ -13,11 +13,22 @@ board.on("ready", function() {
   // Blink every half second
   //led.blink(500); 
   
+  led = new five.Led(5);
+  
+  //led.strobe( 1000 );
+  //this.repl.inject({
+  //  led: led
+  //});
+  //console.log("You can interact with the bargraph via the variable 'led'");
+  //console.log("e.g. led.stop();\n Hit control-d to exit.\n >> ");
+ 
+
   pubnub.subscribe({
 	channel  : "my_channel",
 	callback : function(message) {
 			console.log( " > ", message );
 			console.log(message.command);
+			led.blink(500);
 		}
 	});
 });

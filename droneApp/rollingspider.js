@@ -16,7 +16,7 @@ var pubnub = require("pubnub")({
 
 var RollingSpider = require("rolling-spider");
 var rollingSpider = new RollingSpider('d2edda91562142e988ffcb4a595f8cd9');
-
+var temporal = require('temporal');
 // NEW CODE BELOW HERE
 
 rollingSpider.connect(function () {
@@ -30,6 +30,29 @@ rollingSpider.connect(function () {
 	callback : function(message) {
 			console.log( " > ", message );
 			console.log(message.command);
+			
+			switch(message.command) {
+    		case "initiate":
+        		//code block
+			console.log("initiate");
+			rollingSpider.flatTrim();
+    			rollingSpider.startPing();
+    			rollingSpider.flatTrim();
+        		break;
+    		case "takeOff":
+        		//code block
+		        console.log("take Off");
+			rollingSpider.takeOff();
+			rollingSpider.flatTrim();
+        		
+			break;
+		case "land":
+        		//code block
+				rollingSpider.land();
+			    break;
+    		default:
+        		//default code block
+			}
 		}
 	});
 });
