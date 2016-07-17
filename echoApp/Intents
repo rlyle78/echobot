@@ -1,0 +1,29 @@
+{
+  "intents": [
+    {
+      "intent": "GetUp",
+      "slots": [
+        {
+          "name": "Height",
+          "type": "NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "TakeOff",
+      "slots": []
+    },
+   {
+      "intent": "Land",
+      "slots": []
+    },
+   {
+      "intent": "Initiate",
+      "slots": []
+    },
+    {
+      "intent": "Flip",
+      "slots": []
+    }
+  ]
+}
