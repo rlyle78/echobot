@@ -117,36 +117,36 @@ Echobot.prototype.intentHandlers = {
                         console.log( "FAILED! RETRY PUBLISH!", e ); }
                 });          
     },
-    Forward: function (intent, session, response) {
-               var flyForwardmessage = {
-                        "command" : "forward",
+    Straight: function (intent, session, response) {
+               var flyStraightmessage = {
+                        "command" : "straight",
                         "sessionId" : session.sessionId
                     };
                console.log(pubnub.get_version());
                 pubnub.publish({ 
                     channel   : 'my_channel',
-                    message   : flyForwardmessage,
+                    message   : flyStraightmessage,
                     callback  : function(e) { 
                          console.log( "SUCCESS!", e ); 
-                         response.tell("Drone is flying forward");
+                         response.tell("Drone is flying straight");
                         },
                     error     : function(e) { 
                         response.tellWithCard("Could not connect", "Drone", "Could not connect");
                         console.log( "FAILED! RETRY PUBLISH!", e ); }
                 });          
     },  
-    Backward: function (intent, session, response) {
-               var flyBackwardmessage = {
-                        "command" : "backward",
+    Back: function (intent, session, response) {
+               var flyBackmessage = {
+                        "command" : "back",
                         "sessionId" : session.sessionId
                     };
                console.log(pubnub.get_version());
                 pubnub.publish({ 
                     channel   : 'my_channel',
-                    message   : flyBackwardmessage,
+                    message   : flyBackmessage,
                     callback  : function(e) { 
                          console.log( "SUCCESS!", e ); 
-                         response.tell("Drone is flying backward");
+                         response.tell("Drone is flying back");
                         },
                     error     : function(e) { 
                         response.tellWithCard("Could not connect", "Drone", "Could not connect");

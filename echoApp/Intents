@@ -18,11 +18,11 @@
       "slots": []
     },
    {
-      "intent": "Forward",
+      "intent": "Straight",
       "slots": []
     },  
    {
-      "intent": "Backward",
+      "intent": "Back",
       "slots": []
     },  
    {

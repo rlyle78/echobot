@@ -48,14 +48,14 @@ rollingSpider.connect(function () {
 			rollingSpider.flatTrim();
         		
 			break;
-    		case "forward":
+    		case "straight":
         		//code block
-		        console.log("flying forward");
+		        console.log("flying straight");
 			rollingSpider.forward();	
 			break;
-    		case "backward":
+    		case "back":
         		//code block
-		        console.log("flying backward");
+		        console.log("flying back");
 			rollingSpider.backward();	
 			break;		
     		case "right":
