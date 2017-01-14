@@ -54,7 +54,7 @@ Echobot.prototype.eventHandlers.onLaunch = function (launchRequest, session, res
    
     console.log("Echo Bot onLaunch requestId: " + launchRequest.requestId + ", sessionId: " + session.sessionId);
       
-    var speechOutput = "Welcom to Echo Bot, Please initiate connection to drone";
+    var speechOutput = "Welcom to Sky Net, Please initiate connection to drone";
     response.ask(speechOutput);
 };
 
