@@ -28,7 +28,11 @@
    {
       "intent": "Left",
       "slots": []
-    },  
+    },
+   {
+      "intent": "Patrol",
+      "slots": []
+    },       
    {
       "intent": "Right",
       "slots": []
