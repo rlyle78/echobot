@@ -5,7 +5,7 @@
   "main": "rollingspider.js",
   "dependencies": {
     "noble": "^1.0.2",
-    "pubnub": "^3.7.13",
+    "pubnub": "^3.16.5",
     "rolling-spider": "",
     "temporal": "^0.4.0"
   },

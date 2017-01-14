@@ -1,8 +1,8 @@
 
 var pubnub = require("pubnub")({
     ssl           : true,  // <- enable TLS Tunneling over TCP 
-    publish_key   : "pub-c-....bd09a3eff137",
-    subscribe_key : "sub-c-.....02ee2ddab7fe"
+    publish_key   : "pub-c-5c099dc9-4fb8-41d4-a462-54224a4f47d7",
+    subscribe_key : "sub-c-78d941e8-d9b7-11e6-b9cf-02ee2ddab7fe"
 });
 
     
@@ -22,7 +22,7 @@ var pubnub = require("pubnub")({
 /**
  * App ID for the skill
  */
-var APP_ID = undefined; //replace with "amzn1.echo-sdk-ams.app.[your-unique-value-here]";
+var APP_ID = "amzn1.ask.skill.794a94b4-3d99-466e-a014-a93b2ec75bd8";
 
 /**
  * The AlexaSkill prototype and helper functions
@@ -117,6 +117,24 @@ Echobot.prototype.intentHandlers = {
                         console.log( "FAILED! RETRY PUBLISH!", e ); }
                 });          
     },
+    Forward: function (intent, session, response) {
+               var flyForwardmessage = {
+                        "command" : "forward",
+                        "sessionId" : session.sessionId
+                    };
+               console.log(pubnub.get_version());
+                pubnub.publish({ 
+                    channel   : 'my_channel',
+                    message   : flyForwardmessage,
+                    callback  : function(e) { 
+                         console.log( "SUCCESS!", e ); 
+                         response.tell("Drone is flying forward");
+                        },
+                    error     : function(e) { 
+                        response.tellWithCard("Could not connect", "Drone", "Could not connect");
+                        console.log( "FAILED! RETRY PUBLISH!", e ); }
+                });          
+    },    
     Land: function (intent, session, response) {
 
                var landMessage = {

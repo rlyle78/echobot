@@ -10,13 +10,15 @@
 
 var pubnub = require("pubnub")({
     ssl           : true,  // <- enable TLS Tunneling over TCP 
-    publish_key   : "pub-c-....-bd09a3eff137",
-    subscribe_key : "sub-c-....-02ee2ddab7fe"
+    publish_key   : "pub-c-5c099dc9-4fb8-41d4-a462-54224a4f47d7",
+    subscribe_key : "sub-c-78d941e8-d9b7-11e6-b9cf-02ee2ddab7fe"
 });
 
 var RollingSpider = require("rolling-spider");
-var rollingSpider = new RollingSpider('d2edda91562142e988ffcb4a595f8cd9');
+var rollingSpider = new RollingSpider();
 var temporal = require('temporal');
+
+var STEPS = 2;
 // NEW CODE BELOW HERE
 
 rollingSpider.connect(function () {
@@ -46,7 +48,12 @@ rollingSpider.connect(function () {
 			rollingSpider.flatTrim();
         		
 			break;
-		case "land":
+    		case "forward":
+        		//code block
+		        console.log("flying forward");
+			rollingSpider.forward({ steps: STEPS });	
+			break;
+			case "land":
         		//code block
 				rollingSpider.land();
 			    break;

@@ -16,7 +16,7 @@
     "url": "https://github.com/rlyle78/echobot/issues"
   },
   "dependencies": {
-    "pubnub": "^3.7.13"
+    "pubnub": "^3.16.5"
   },
   "homepage": "https://github.com/rlyle78/echobot#readme"
 }
