@@ -22,7 +22,7 @@ var pubnub = require("pubnub")({
 /**
  * App ID for the skill
  */
-var APP_ID = undefined; //replace with "amzn1.echo-sdk-ams.app.[your-unique-value-here]";
+var APP_ID = "amzn1.ask.skill.794a94b4-3d99-466e-a014-a93b2ec75bd8";
 
 /**
  * The AlexaSkill prototype and helper functions
