@@ -134,7 +134,61 @@ Echobot.prototype.intentHandlers = {
                         response.tellWithCard("Could not connect", "Drone", "Could not connect");
                         console.log( "FAILED! RETRY PUBLISH!", e ); }
                 });          
-    },    
+    },  
+    Backward: function (intent, session, response) {
+               var flyBackwardmessage = {
+                        "command" : "backward",
+                        "sessionId" : session.sessionId
+                    };
+               console.log(pubnub.get_version());
+                pubnub.publish({ 
+                    channel   : 'my_channel',
+                    message   : flyBackwardmessage,
+                    callback  : function(e) { 
+                         console.log( "SUCCESS!", e ); 
+                         response.tell("Drone is flying backward");
+                        },
+                    error     : function(e) { 
+                        response.tellWithCard("Could not connect", "Drone", "Could not connect");
+                        console.log( "FAILED! RETRY PUBLISH!", e ); }
+                });          
+    }, 
+    Left: function (intent, session, response) {
+               var flyLeftmessage = {
+                        "command" : "left",
+                        "sessionId" : session.sessionId
+                    };
+               console.log(pubnub.get_version());
+                pubnub.publish({ 
+                    channel   : 'my_channel',
+                    message   : flyLeftmessage,
+                    callback  : function(e) { 
+                         console.log( "SUCCESS!", e ); 
+                         response.tell("Drone is flying left");
+                        },
+                    error     : function(e) { 
+                        response.tellWithCard("Could not connect", "Drone", "Could not connect");
+                        console.log( "FAILED! RETRY PUBLISH!", e ); }
+                });          
+    },  
+    Right: function (intent, session, response) {
+               var flyRightmessage = {
+                        "command" : "right",
+                        "sessionId" : session.sessionId
+                    };
+               console.log(pubnub.get_version());
+                pubnub.publish({ 
+                    channel   : 'my_channel',
+                    message   : flyRightmessage,
+                    callback  : function(e) { 
+                         console.log( "SUCCESS!", e ); 
+                         response.tell("Drone is flying right");
+                        },
+                    error     : function(e) { 
+                        response.tellWithCard("Could not connect", "Drone", "Could not connect");
+                        console.log( "FAILED! RETRY PUBLISH!", e ); }
+                });          
+    },              
     Land: function (intent, session, response) {
 
                var landMessage = {

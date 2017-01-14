@@ -20,7 +20,19 @@
    {
       "intent": "Forward",
       "slots": []
-    },    
+    },  
+   {
+      "intent": "Backward",
+      "slots": []
+    },  
+   {
+      "intent": "Left",
+      "slots": []
+    },  
+   {
+      "intent": "Right",
+      "slots": []
+    },             
    {
       "intent": "Initiate",
       "slots": []

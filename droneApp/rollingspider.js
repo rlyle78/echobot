@@ -51,8 +51,23 @@ rollingSpider.connect(function () {
     		case "forward":
         		//code block
 		        console.log("flying forward");
-			rollingSpider.forward({ steps: STEPS });	
+			rollingSpider.forward();	
 			break;
+    		case "backward":
+        		//code block
+		        console.log("flying backward");
+			rollingSpider.backward();	
+			break;		
+    		case "right":
+        		//code block
+		        console.log("flying right");
+			rollingSpider.right();	
+			break;	
+    		case "left":
+        		//code block
+		        console.log("flying left");
+			rollingSpider.left();	
+			break;						
 			case "land":
         		//code block
 				rollingSpider.land();
