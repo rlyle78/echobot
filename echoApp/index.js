@@ -110,7 +110,7 @@ Echobot.prototype.intentHandlers = {
                     message   : takeOffmessage,
                     callback  : function(e) { 
                          console.log( "SUCCESS!", e ); 
-                         response.tell("Drone is flying");
+                         response.tell("Drone is launching");
                         },
                     error     : function(e) { 
                         response.tellWithCard("Could not connect", "Drone", "Could not connect");
@@ -208,7 +208,7 @@ Echobot.prototype.intentHandlers = {
                 });          
     },
     Down: function (intent, session, response) {
-               var flyUpmessage = {
+               var flyDownmessage = {
                         "command" : "down",
                         "sessionId" : session.sessionId
                     };
@@ -224,7 +224,43 @@ Echobot.prototype.intentHandlers = {
                         response.tellWithCard("Could not connect", "Drone", "Could not connect");
                         console.log( "FAILED! RETRY PUBLISH!", e ); }
                 });          
-    },                     
+    },  
+    turnRight: function (intent, session, response) {
+               var turnRightmessage = {
+                        "command" : "turn right",
+                        "sessionId" : session.sessionId
+                    };
+               console.log(pubnub.get_version());
+                pubnub.publish({ 
+                    channel   : 'my_channel',
+                    message   : turnRightmessage,
+                    callback  : function(e) { 
+                         console.log( "SUCCESS!", e ); 
+                         response.tell("Drone is turning right");
+                        },
+                    error     : function(e) { 
+                        response.tellWithCard("Could not connect", "Drone", "Could not connect");
+                        console.log( "FAILED! RETRY PUBLISH!", e ); }
+                });          
+    },
+    turnLeft: function (intent, session, response) {
+               var turnLeftmessage = {
+                        "command" : "turn left",
+                        "sessionId" : session.sessionId
+                    };
+               console.log(pubnub.get_version());
+                pubnub.publish({ 
+                    channel   : 'my_channel',
+                    message   : turnLeftmessage,
+                    callback  : function(e) { 
+                         console.log( "SUCCESS!", e ); 
+                         response.tell("Drone is turning left");
+                        },
+                    error     : function(e) { 
+                        response.tellWithCard("Could not connect", "Drone", "Could not connect");
+                        console.log( "FAILED! RETRY PUBLISH!", e ); }
+                });          
+    },                               
     Stop: function (intent, session, response) {
 
                var stopMessage = {
@@ -238,7 +274,7 @@ Echobot.prototype.intentHandlers = {
                     message   : stopMessage,
                     callback  : function(e) { 
                          console.log( "SUCCESS!", e ); 
-                         response.tell("Going down");
+                         response.tell("Drone is landing");
                         },
                     error     : function(e) { 
                         response.tellWithCard("Could not connect", "Drone", "Could not connect");

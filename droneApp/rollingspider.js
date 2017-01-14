@@ -17,8 +17,6 @@ var pubnub = require("pubnub")({
 var RollingSpider = require("rolling-spider");
 var rollingSpider = new RollingSpider();
 var temporal = require('temporal');
-
-var STEPS = 2;
 // NEW CODE BELOW HERE
 
 rollingSpider.connect(function () {
@@ -77,7 +75,17 @@ rollingSpider.connect(function () {
         		//code block
 		        console.log("flying up");
 			rollingSpider.down();	
-			break;										
+			break;	
+    		case "turn left":
+        		//code block
+		        console.log("turning left");
+			rollingSpider.turnLeft();	
+			break;		
+    		case "turn right":
+        		//code block
+		        console.log("turning right");
+			rollingSpider.turnRight();	
+			break;													
 			case "stop":
         		//code block
 				rollingSpider.land();
