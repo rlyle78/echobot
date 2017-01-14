@@ -32,7 +32,15 @@
    {
       "intent": "Right",
       "slots": []
-    },             
+    },  
+   {
+      "intent": "Up",
+      "slots": []
+    },  
+   {
+      "intent": "Down",
+      "slots": []
+    },                  
    {
       "intent": "Initiate",
       "slots": []

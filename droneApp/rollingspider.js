@@ -67,7 +67,17 @@ rollingSpider.connect(function () {
         		//code block
 		        console.log("flying left");
 			rollingSpider.left();	
-			break;						
+			break;	
+    		case "up":
+        		//code block
+		        console.log("flying up");
+			rollingSpider.up();	
+			break;	
+    		case "down":
+        		//code block
+		        console.log("flying up");
+			rollingSpider.down();	
+			break;										
 			case "stop":
         		//code block
 				rollingSpider.land();
