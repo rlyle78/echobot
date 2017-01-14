@@ -14,13 +14,25 @@
       "slots": []
     },
    {
-      "intent": "Land",
+      "intent": "Stop",
       "slots": []
     },
    {
-      "intent": "Forward",
+      "intent": "Straight",
       "slots": []
-    },    
+    },  
+   {
+      "intent": "Back",
+      "slots": []
+    },  
+   {
+      "intent": "Left",
+      "slots": []
+    },  
+   {
+      "intent": "Right",
+      "slots": []
+    },             
    {
       "intent": "Initiate",
       "slots": []

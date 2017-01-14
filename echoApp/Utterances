@@ -10,8 +10,11 @@ TakeOff Hover
 TakeOff Go Up
 TakeOff Blink
 Land Land the drone
-Land Stop
+Stop Stop
 Land Sleep
 Land Go Down 
 Land Land
-Fly Forward
+Straight Straight
+Back Back
+Right Right
+Left Left
