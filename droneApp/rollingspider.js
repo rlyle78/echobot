@@ -24,6 +24,7 @@ RollingSpider.prototype.patrol = function(){
         task: function () {
           // rollingSpider.flatTrim();
           rollingSpider.forward({ speed: 50, steps: 50 });
+          rollingSpider.startPing();
           console.log('Forward 50 steps');
         }
       },
@@ -32,6 +33,7 @@ RollingSpider.prototype.patrol = function(){
         task: function () {
           // rollingSpider.flatTrim();
           rollingSpider.counterClockwise({ speed: 50, steps: 40 });
+          rollingSpider.startPing();
           console.log('Turn Left 50 steps');
         }
       },
@@ -40,6 +42,7 @@ RollingSpider.prototype.patrol = function(){
       	task: function(){
       	  // rollingSpider.flatTrim();
       	  rollingSpider.forward({ speed: 50, steps: 50 });
+      	  rollingSpider.startPing();
       	  console.log('Forward 50 steps');
       	}
       },
@@ -107,84 +110,106 @@ var temporal = require('temporal');
 
 
 rollingSpider.connect(function () {
-    rollingSpider.flatTrim();
-    rollingSpider.startPing();
-    rollingSpider.flatTrim();
+	rollingSpider.setup(function(){
 
-  	console.log('Connected to drone', rollingSpider.name);
+	    rollingSpider.flatTrim();
+	    rollingSpider.startPing();
+	    rollingSpider.flatTrim();
 
-	pubnub.subscribe({
-	channel  : "my_channel",
-	callback : function(message) {
-			console.log( " > ", message );
-			console.log(message.command);
-			
-			switch(message.command) {
-    		case "initiate":
-        		//code block
-			console.log("initiate");
-				rollingSpider.flatTrim();
-    			rollingSpider.startPing();
-    			rollingSpider.flatTrim();
-    		break;
-    		case "takeOff":
-        		//code block
-		        console.log("take Off");
-				rollingSpider.flatTrim();
-				rollingSpider.takeOff();
-			break;
-    		case "straight":
-        		//code block
-		        console.log("flying straight");
-				rollingSpider.forward();	
-			break;
-    		case "back":
-        		//code block
-		        console.log("flying back");
-				rollingSpider.backward();	
-			break;		
-    		case "right":
-        		//code block
-		        console.log("flying right");
-				rollingSpider.right();	
-			break;	
-    		case "left":
-        		//code block
-		        console.log("flying left");
-				rollingSpider.left();	
-			break;	
-    		case "up":
-        		//code block
-		        console.log("flying up");
-				rollingSpider.up();	
-			break;	
-    		case "down":
-        		//code block
-		        console.log("flying up");
-				rollingSpider.down();	
-			break;	
-    		case "turn left":
-        		//code block
-		        console.log("turning left");
-				rollingSpider.turnLeft();	
-			break;		
-    		case "turn right":
-        		//code block
-		        console.log("turning right");
-				rollingSpider.turnRight();	
-			break;
-    		case "patrol":
-        		//code block
-		        console.log("patroling....");
-				rollingSpider.patrol();
-			break;																
-			case "stop":
-        		//code block
-				rollingSpider.land();
-		    break;
-    		default:
-        		//default code block
+	  	console.log('Connected to drone', rollingSpider.name);
+		console.log('Strength: ', rollingSpider.signalStrength(callback));
+
+
+
+		pubnub.subscribe({
+		channel  : "my_channel",
+		callback : function(message) {
+				console.log( " > ", message );
+				console.log(message.command);
+				
+				switch(message.command) {
+	    		case "initiate":
+	        		//code block
+				console.log("initiate");
+					rollingSpider.flatTrim();
+	    			rollingSpider.startPing(function(){ console.log('Pinging...') });
+	    			rollingSpider.flatTrim();
+	    		break;
+	    		case "takeOff":
+	        		//code block
+			        console.log("take Off");
+					rollingSpider.flatTrim();
+					rollingSpider.takeOff();
+					rollingSpider.startPing();
+					console.log(rollingSpider.connected);
+				break;
+	    		case "straight":
+	        		//code block
+			        console.log("flying straight");
+					rollingSpider.forward();
+					rollingSpider.startPing();
+				break;
+	    		case "back":
+	        		//code block
+			        console.log("flying back");
+					rollingSpider.backward();
+					rollingSpider.startPing();
+				break;		
+	    		case "right":
+	        		//code block
+			        console.log("flying right");
+					rollingSpider.right();
+					rollingSpider.startPing();
+				break;	
+	    		case "left":
+	        		//code block
+			        console.log("flying left");
+					rollingSpider.left();
+					rollingSpider.startPing();
+				break;	
+	    		case "up":
+	        		//code block
+			        console.log("flying up");
+					rollingSpider.up();
+					rollingSpider.startPing();
+				break;	
+	    		case "down":
+	        		//code block
+			        console.log("flying down");
+					rollingSpider.down();
+					rollingSpider.startPing();
+				break;	
+	    		case "turn left":
+	        		//code block
+			        console.log("turning left");
+					rollingSpider.turnLeft();
+					rollingSpider.startPing();
+				break;		
+	    		case "turn right":
+	        		//code block
+			        console.log("turning right");
+					rollingSpider.turnRight();
+					rollingSpider.startPing();
+				break;
+	    		case "patrol":
+	        		//code block
+			        console.log("patroling....");
+					rollingSpider.patrol();
+					rollingSpider.startPing();
+				break;																
+				case "stop":
+	        		//code block
+					rollingSpider.land();
+					rollingSpider.startPing();
+			    break;
+	    		default:
+	        		//default code block
+				}
 			}
-		}
+		});
 	});
 });
+
+function callback(i, strength){
+	console.log(i, strength);
+}
