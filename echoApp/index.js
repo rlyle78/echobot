@@ -189,17 +189,17 @@ Echobot.prototype.intentHandlers = {
                         console.log( "FAILED! RETRY PUBLISH!", e ); }
                 });          
     },              
-    Land: function (intent, session, response) {
+    Stop: function (intent, session, response) {
 
-               var landMessage = {
-                        "command" : "land",
+               var stopMessage = {
+                        "command" : "stop",
                         "sessionId" : session.sessionId
                     };
                console.log(pubnub.get_version());
                //response.setShouldEndSession(true);
                 pubnub.publish({ 
                     channel   : 'my_channel',
-                    message   : landMessage,
+                    message   : stopMessage,
                     callback  : function(e) { 
                          console.log( "SUCCESS!", e ); 
                          response.tell("Going down");
