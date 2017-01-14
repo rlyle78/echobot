@@ -17,6 +17,8 @@ var pubnub = require("pubnub")({
 var RollingSpider = require("rolling-spider");
 var rollingSpider = new RollingSpider();
 var temporal = require('temporal');
+
+var STEPS = 2;
 // NEW CODE BELOW HERE
 
 rollingSpider.connect(function () {
@@ -46,7 +48,12 @@ rollingSpider.connect(function () {
 			rollingSpider.flatTrim();
         		
 			break;
-		case "land":
+    		case "forward":
+        		//code block
+		        console.log("flying forward");
+			rollingSpider.forward({ steps: STEPS });	
+			break;
+			case "land":
         		//code block
 				rollingSpider.land();
 			    break;
