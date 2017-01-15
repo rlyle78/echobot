@@ -24,7 +24,7 @@ RollingSpider.prototype.patrol = function(){
         task: function () {
           // rollingSpider.flatTrim();
           rollingSpider.forward({ speed: 50, steps: 50 });
-          rollingSpider.startPing();
+          // rollingSpider.startPing();
           console.log('Forward 50 steps');
         }
       },
@@ -33,7 +33,7 @@ RollingSpider.prototype.patrol = function(){
         task: function () {
           // rollingSpider.flatTrim();
           rollingSpider.counterClockwise({ speed: 50, steps: 40 });
-          rollingSpider.startPing();
+          // rollingSpider.startPing();
           console.log('Turn Left 50 steps');
         }
       },
@@ -42,7 +42,7 @@ RollingSpider.prototype.patrol = function(){
       	task: function(){
       	  // rollingSpider.flatTrim();
       	  rollingSpider.forward({ speed: 50, steps: 50 });
-      	  rollingSpider.startPing();
+      	  // rollingSpider.startPing();
       	  console.log('Forward 50 steps');
       	}
       },
