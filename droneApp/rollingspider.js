@@ -162,89 +162,68 @@ pubnub.subscribe({
 					rollingSpider.takeOff();
 					rollingSpider.startPing();
 					console.log(rollingSpider.connected);
-					cooldown();
-					console.log(rollingSpider.status)
+					// cooldown();
 				break;
 	    		case "straight":
 	        		//code block
 			        console.log("flying straight");
 					rollingSpider.forward();
-					rollingSpider.startPing();
-					cooldown();
-					console.log(rollingSpider.status)
+					// cooldown();
 				break;
 	    		case "back":
 	        		//code block
 			        console.log("flying back");
 					rollingSpider.backward();
-					rollingSpider.startPing();
-					cooldown();
-					console.log(rollingSpider.status)
-				break;		
+					// cooldown();
+				break;
 	    		case "right":
 	        		//code block
 			        console.log("flying right");
 					rollingSpider.right();
-					rollingSpider.startPing();
-					cooldown();
-					console.log(rollingSpider.status)
-				break;	
+					// cooldown();
+				break;
 	    		case "left":
 	        		//code block
 			        console.log("flying left");
 					rollingSpider.left();
-					rollingSpider.startPing();
-					cooldown();
-					console.log(rollingSpider.status)
+					// cooldown();
 
 				break;	
 	    		case "up":
 	        		//code block
 			        console.log("flying up");
 					rollingSpider.up();
-					rollingSpider.startPing();
-					cooldown();
-					console.log(rollingSpider.status)
-				break;	
+					// cooldown();
+				break;
 	    		case "down":
 	        		//code block
 			        console.log("flying down");
 					rollingSpider.down();
-					rollingSpider.startPing();
-					cooldown();
-					console.log(rollingSpider.status)
-				break;	
+					// cooldown();
+				break;
 	    		case "turn left":
 	        		//code block
 			        console.log("turning left");
 					rollingSpider.turnLeft();
-					rollingSpider.startPing();
-					cooldown();
-					console.log(rollingSpider.status)
-				break;		
+					// cooldown();
+				break;
 	    		case "turn right":
 	        		//code block
 			        console.log("turning right");
 					rollingSpider.turnRight();
-					rollingSpider.startPing();
-					cooldown();
-					console.log(rollingSpider.status)
+					// cooldown();
 				break;
 	    		case "patrol":
 	        		//code block
 			        console.log("patroling....");
 					rollingSpider.patrol();
-					rollingSpider.startPing();
-					cooldown();
-					console.log(rollingSpider.status)
-				break;																
+					// cooldown();
+				break;
 				case "stop":
 	        		//code block
 	        		temporal.clear();
 					rollingSpider.land();
-					rollingSpider.startPing();
-					cooldown();
-					console.log(rollingSpider.status)
+					// cooldown();
 			    break;
 	    		default:
 	        		//default code block
