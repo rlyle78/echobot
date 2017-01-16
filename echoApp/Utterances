@@ -15,3 +15,6 @@ Left Left
 Right Right
 Up Up
 Patrol Patrol
+Flip Flip
+turnRight clockwise
+turnLeft counter clockwise

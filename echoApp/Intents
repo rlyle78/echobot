@@ -18,6 +18,18 @@
       "slots": []
     },
    {
+      "intent": "TurnLeft",
+      "slots": []
+    },  
+   {
+      "intent": "TurnRight",
+      "slots": []
+    },      
+   {
+      "intent": "Flip",
+      "slots": []
+    },    
+   {
       "intent": "Straight",
       "slots": []
     },  

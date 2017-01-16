@@ -134,7 +134,25 @@ Echobot.prototype.intentHandlers = {
                         response.tellWithCard("Could not connect", "Drone", "Could not connect");
                         console.log( "FAILED! RETRY PUBLISH!", e ); }
                 });          
-    },  
+    }, 
+    Flip: function (intent, session, response) {
+               var flipmessage = {
+                        "command" : "flip",
+                        "sessionId" : session.sessionId
+                    };
+               console.log(pubnub.get_version());
+                pubnub.publish({ 
+                    channel   : 'my_channel',
+                    message   : flipmessage,
+                    callback  : function(e) { 
+                         console.log( "SUCCESS!", e ); 
+                         response.tell("Drone is flipping");
+                        },
+                    error     : function(e) { 
+                        response.tellWithCard("Could not connect", "Drone", "Could not connect");
+                        console.log( "FAILED! RETRY PUBLISH!", e ); }
+                });          
+    },       
     Back: function (intent, session, response) {
                var flyBackmessage = {
                         "command" : "back",
