@@ -26,8 +26,8 @@ swarm.on('assembled', function () {
         {
             delay: 3000,
             task: function () {
-                swarm.land();
                 console.log('Land');
+                swarm.land();
             }
         },
         {

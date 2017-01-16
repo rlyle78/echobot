@@ -10,7 +10,7 @@ var pubnub = require("pubnub")({
 var Swarm = require('rolling-spider').Swarm;
 var temporal = require('temporal');
 
-var swarm = new Swarm(['RS_R042799', 'RS_B138965');
+var swarm = new Swarm({membership: ['RS_R042799', 'RS_B138965']});
 
 Swarm.prototype.patrol = function(){
     temporal.queue([
