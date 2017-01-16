@@ -1,8 +1,8 @@
 
 var pubnub = require("pubnub")({
     ssl           : true,  // <- enable TLS Tunneling over TCP 
-    publish_key   : "pub-c-....bd09a3eff137",
-    subscribe_key : "sub-c-.....02ee2ddab7fe"
+    publish_key   : "pub-c-5c099dc9-4fb8-41d4-a462-54224a4f47d7",
+    subscribe_key : "sub-c-78d941e8-d9b7-11e6-b9cf-02ee2ddab7fe"
 });
 
     
@@ -22,7 +22,7 @@ var pubnub = require("pubnub")({
 /**
  * App ID for the skill
  */
-var APP_ID = undefined; //replace with "amzn1.echo-sdk-ams.app.[your-unique-value-here]";
+var APP_ID = "amzn1.ask.skill.794a94b4-3d99-466e-a014-a93b2ec75bd8";
 
 /**
  * The AlexaSkill prototype and helper functions
@@ -54,7 +54,7 @@ Echobot.prototype.eventHandlers.onLaunch = function (launchRequest, session, res
    
     console.log("Echo Bot onLaunch requestId: " + launchRequest.requestId + ", sessionId: " + session.sessionId);
       
-    var speechOutput = "Welcom to Echo Bot, Please initiate connection to drone";
+    var speechOutput = "Welcom to Sky Net, Please initiate connection to drone";
     response.ask(speechOutput);
 };
 
@@ -110,27 +110,207 @@ Echobot.prototype.intentHandlers = {
                     message   : takeOffmessage,
                     callback  : function(e) { 
                          console.log( "SUCCESS!", e ); 
-                         response.tell("Drone is flying");
+                         response.tell("Drone is launching");
                         },
                     error     : function(e) { 
                         response.tellWithCard("Could not connect", "Drone", "Could not connect");
                         console.log( "FAILED! RETRY PUBLISH!", e ); }
                 });          
     },
-    Land: function (intent, session, response) {
+    Straight: function (intent, session, response) {
+               var flyStraightmessage = {
+                        "command" : "straight",
+                        "sessionId" : session.sessionId
+                    };
+               console.log(pubnub.get_version());
+                pubnub.publish({ 
+                    channel   : 'my_channel',
+                    message   : flyStraightmessage,
+                    callback  : function(e) { 
+                         console.log( "SUCCESS!", e ); 
+                         response.tell("Drone is flying straight");
+                        },
+                    error     : function(e) { 
+                        response.tellWithCard("Could not connect", "Drone", "Could not connect");
+                        console.log( "FAILED! RETRY PUBLISH!", e ); }
+                });          
+    }, 
+    Flip: function (intent, session, response) {
+               var flipmessage = {
+                        "command" : "flip",
+                        "sessionId" : session.sessionId
+                    };
+               console.log(pubnub.get_version());
+                pubnub.publish({ 
+                    channel   : 'my_channel',
+                    message   : flipmessage,
+                    callback  : function(e) { 
+                         console.log( "SUCCESS!", e ); 
+                         response.tell("Drone is flipping");
+                        },
+                    error     : function(e) { 
+                        response.tellWithCard("Could not connect", "Drone", "Could not connect");
+                        console.log( "FAILED! RETRY PUBLISH!", e ); }
+                });          
+    },           
+    Back: function (intent, session, response) {
+               var flyBackmessage = {
+                        "command" : "back",
+                        "sessionId" : session.sessionId
+                    };
+               console.log(pubnub.get_version());
+                pubnub.publish({ 
+                    channel   : 'my_channel',
+                    message   : flyBackmessage,
+                    callback  : function(e) { 
+                         console.log( "SUCCESS!", e ); 
+                         response.tell("Drone is flying back");
+                        },
+                    error     : function(e) { 
+                        response.tellWithCard("Could not connect", "Drone", "Could not connect");
+                        console.log( "FAILED! RETRY PUBLISH!", e ); }
+                });          
+    }, 
+    Left: function (intent, session, response) {
+               var flyLeftmessage = {
+                        "command" : "left",
+                        "sessionId" : session.sessionId
+                    };
+               console.log(pubnub.get_version());
+                pubnub.publish({ 
+                    channel   : 'my_channel',
+                    message   : flyLeftmessage,
+                    callback  : function(e) { 
+                         console.log( "SUCCESS!", e ); 
+                         response.tell("Drone is flying left");
+                        },
+                    error     : function(e) { 
+                        response.tellWithCard("Could not connect", "Drone", "Could not connect");
+                        console.log( "FAILED! RETRY PUBLISH!", e ); }
+                });          
+    },  
+    Right: function (intent, session, response) {
+               var flyRightmessage = {
+                        "command" : "right",
+                        "sessionId" : session.sessionId
+                    };
+               console.log(pubnub.get_version());
+                pubnub.publish({ 
+                    channel   : 'my_channel',
+                    message   : flyRightmessage,
+                    callback  : function(e) { 
+                         console.log( "SUCCESS!", e ); 
+                         response.tell("Drone is flying right");
+                        },
+                    error     : function(e) { 
+                        response.tellWithCard("Could not connect", "Drone", "Could not connect");
+                        console.log( "FAILED! RETRY PUBLISH!", e ); }
+                });          
+    },   
+    Up: function (intent, session, response) {
+               var flyUpmessage = {
+                        "command" : "up",
+                        "sessionId" : session.sessionId
+                    };
+               console.log(pubnub.get_version());
+                pubnub.publish({ 
+                    channel   : 'my_channel',
+                    message   : flyUpmessage,
+                    callback  : function(e) { 
+                         console.log( "SUCCESS!", e ); 
+                         response.tell("Drone is flying up");
+                        },
+                    error     : function(e) { 
+                        response.tellWithCard("Could not connect", "Drone", "Could not connect");
+                        console.log( "FAILED! RETRY PUBLISH!", e ); }
+                });          
+    },
+    Down: function (intent, session, response) {
+               var flyDownmessage = {
+                        "command" : "down",
+                        "sessionId" : session.sessionId
+                    };
+               console.log(pubnub.get_version());
+                pubnub.publish({ 
+                    channel   : 'my_channel',
+                    message   : flyDownmessage,
+                    callback  : function(e) { 
+                         console.log( "SUCCESS!", e ); 
+                         response.tell("Drone is flying down");
+                        },
+                    error     : function(e) { 
+                        response.tellWithCard("Could not connect", "Drone", "Could not connect");
+                        console.log( "FAILED! RETRY PUBLISH!", e ); }
+                });          
+    },  
+    turnRight: function (intent, session, response) {
+               var turnRightmessage = {
+                        "command" : "turn right",
+                        "sessionId" : session.sessionId
+                    };
+               console.log(pubnub.get_version());
+                pubnub.publish({ 
+                    channel   : 'my_channel',
+                    message   : turnRightmessage,
+                    callback  : function(e) { 
+                         console.log( "SUCCESS!", e ); 
+                         response.tell("Drone is turning right");
+                        },
+                    error     : function(e) { 
+                        response.tellWithCard("Could not connect", "Drone", "Could not connect");
+                        console.log( "FAILED! RETRY PUBLISH!", e ); }
+                });          
+    },
+    turnLeft: function (intent, session, response) {
+               var turnLeftmessage = {
+                        "command" : "turn left",
+                        "sessionId" : session.sessionId
+                    };
+               console.log(pubnub.get_version());
+                pubnub.publish({ 
+                    channel   : 'my_channel',
+                    message   : turnLeftmessage,
+                    callback  : function(e) { 
+                         console.log( "SUCCESS!", e ); 
+                         response.tell("Drone is turning left");
+                        },
+                    error     : function(e) { 
+                        response.tellWithCard("Could not connect", "Drone", "Could not connect");
+                        console.log( "FAILED! RETRY PUBLISH!", e ); }
+                });          
+    },   
+    Patrol: function (intent, session, response) {
+               var patrolmessage = {
+                        "command" : "patrol",
+                        "sessionId" : session.sessionId
+                    };
+               console.log(pubnub.get_version());
+                pubnub.publish({ 
+                    channel   : 'my_channel',
+                    message   : patrolmessage,
+                    callback  : function(e) { 
+                         console.log( "SUCCESS!", e ); 
+                         response.tell("Drone is patrolling");
+                        },
+                    error     : function(e) { 
+                        response.tellWithCard("Could not connect", "Drone", "Could not connect");
+                        console.log( "FAILED! RETRY PUBLISH!", e ); }
+                });          
+    },                                
+    Stop: function (intent, session, response) {
 
-               var landMessage = {
-                        "command" : "land",
+               var stopMessage = {
+                        "command" : "stop",
                         "sessionId" : session.sessionId
                     };
                console.log(pubnub.get_version());
                //response.setShouldEndSession(true);
                 pubnub.publish({ 
                     channel   : 'my_channel',
-                    message   : landMessage,
+                    message   : stopMessage,
                     callback  : function(e) { 
                          console.log( "SUCCESS!", e ); 
-                         response.tell("Going down");
+                         response.tell("Drone is landing");
                         },
                     error     : function(e) { 
                         response.tellWithCard("Could not connect", "Drone", "Could not connect");

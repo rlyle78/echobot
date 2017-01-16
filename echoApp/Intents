@@ -14,9 +14,49 @@
       "slots": []
     },
    {
-      "intent": "Land",
+      "intent": "Stop",
       "slots": []
     },
+   {
+      "intent": "TurnLeft",
+      "slots": []
+    },  
+   {
+      "intent": "TurnRight",
+      "slots": []
+    },      
+   {
+      "intent": "Flip",
+      "slots": []
+    },    
+   {
+      "intent": "Straight",
+      "slots": []
+    },  
+   {
+      "intent": "Back",
+      "slots": []
+    },  
+   {
+      "intent": "Left",
+      "slots": []
+    },
+   {
+      "intent": "Patrol",
+      "slots": []
+    },       
+   {
+      "intent": "Right",
+      "slots": []
+    },  
+   {
+      "intent": "Up",
+      "slots": []
+    },  
+   {
+      "intent": "Down",
+      "slots": []
+    },                    
    {
       "intent": "Initiate",
       "slots": []
