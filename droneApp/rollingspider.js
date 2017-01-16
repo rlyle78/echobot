@@ -24,19 +24,15 @@ RollingSpider.prototype.patrol = function(){
       {
         delay: 5000,
         task: function () {
-          // rollingSpider.flatTrim();
           rollingSpider.forward({ speed: 50, steps: 50 });
-          // rollingSpider.startPing();
-          console.log('Forward 50 steps');
+          console.log('Starting patrol...Forward 50 steps');
           cooldown();
         }
       },
       {
         delay: 5000,
         task: function () {
-          // rollingSpider.flatTrim();
           rollingSpider.counterClockwise({ speed: 50, steps: 40 });
-          // rollingSpider.startPing();
           console.log('Turn Left 50 steps');
           cooldown();
         }
@@ -44,68 +40,67 @@ RollingSpider.prototype.patrol = function(){
       {
       	delay: 5000,
       	task: function(){
-      	  // rollingSpider.flatTrim();
       	  rollingSpider.forward({ speed: 50, steps: 50 });
-      	  // rollingSpider.startPing();
       	  console.log('Forward 50 steps');
       	  cooldown();
       	}
       },
       {
-        delay: 3000,
+        delay: 5000,
         task: function () {
-          temporal.clear();
+          rollingSpider.counterClockwise({ speed: 50, steps: 40 });
+          console.log('Turn Left 50 steps');
           cooldown();
         }
-      }
-      // {
-      //   delay: 1500,
-      //   task: function () {
-      //     rollingSpider.forward();
-      //     rollingSpider.flatTrim();
-      //     console.log('Forward');
-      //   }
-      // },
-      // {
-      //   delay: 1500,
-      //   task: function () {
-      //     rollingSpider.counterClockwise();
-      //     rollingSpider.flatTrim();
-      //     console.log('Turn Left');
-      //   }
-      // },
-      // {
-      //   delay: 1500,
-      //   task: function () {
-      //     rollingSpider.forward();
-      //     rollingSpider.flatTrim();
-      //     console.log('Forward');
-      //   }
-      // },  
-      // {
-      //   delay: 1500,
-      //   task: function () {
-      //     rollingSpider.counterClockwise();
-      //     rollingSpider.flatTrim();
-      //     console.log('Turn Left');
-      //   }
-      // }, 
-      // {
-      //   delay: 1500,
-      //   task: function () {
-      //     rollingSpider.forward();
-      //     rollingSpider.flatTrim();
-      //     console.log('Forward');
-      //   }
-      // }, 
-      // {
-      //   delay: 1500,
-      //   task: function () {
-      //     rollingSpider.counterClockwise();
-      //     rollingSpider.flatTrim();
-      //     console.log('Turn Left');
-      //   }
-      // }                   
+      },      
+      {
+        delay: 5000,
+        task: function () {
+          rollingSpider.forward({ speed: 50, steps: 50 });
+          console.log('Forward 50 steps');
+          cooldown();
+        }
+      },
+      {
+        delay: 5000,
+        task: function () {
+          rollingSpider.counterClockwise({ speed: 50, steps: 40 });
+          console.log('Turn Left 50 steps');
+          cooldown();
+        }
+      },
+      {
+        delay: 5000,
+        task: function () {
+          rollingSpider.forward({ speed: 50, steps: 50 });
+          console.log('Forward 50 steps');
+          cooldown();
+        }
+      },  
+      {
+        delay: 5000,
+        task: function () {
+          rollingSpider.counterClockwise({ speed: 50, steps: 40 });
+          console.log('Turn Left 50 steps');
+          cooldown();
+        }
+      }, 
+      {
+        delay: 5000,
+        task: function () {
+          rollingSpider.forward({ speed: 50, steps: 50 });
+          console.log('Forward 50 steps');
+          cooldown();
+        }
+      }, 
+      {
+        delay: 5000,
+        task: function () {
+          rollingSpider.counterClockwise({ speed: 50, steps: 40 });
+          console.log('Finishing patrol');
+          cooldown();
+        }
+      }                   
     ]);
 };
 
@@ -113,10 +108,10 @@ var rollingSpider = new RollingSpider();
 var temporal = require('temporal');
 // NEW CODE BELOW HERE
 
-rollingSpider.on("flyingStatusChange", function(stat) {
-	console.log('New status code: ', stat);
-	console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ State Change +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-});
+// rollingSpider.on("flyingStatusChange", function(stat) {
+// 	console.log('New status code: ', stat);
+// 	console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ State Change +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+// });
 
 function cooldown() {
   ACTIVE = false;
@@ -217,6 +212,12 @@ pubnub.subscribe({
 				rollingSpider.turnRight();
 				// cooldown();
 			break;
+      case "flip":
+        //code block
+        console.log("flipping...");
+        rollingSpider.frontFlip();
+        // cooldown();
+      break;
 			case "patrol":
 				//code block
 				console.log("patroling....");
