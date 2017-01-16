@@ -134,7 +134,6 @@ rollingSpider.connect(function () {
 	    rollingSpider.flatTrim();
 
 	  	console.log('Connected to drone', rollingSpider.name);
-		console.log('Strength: ', rollingSpider.signalStrength(callback));
 
 		setTimeout(function () {
       		console.log('ready for flight');
@@ -145,98 +144,99 @@ rollingSpider.connect(function () {
 
 
 pubnub.subscribe({
-		channel  : "my_channel",
-		callback : function(message) {
-				console.log( " > ", message );
-				console.log(message.command);
-				console.log(rollingSpider.status)
-				switch(message.command) {
-	   //  		case "initiate":
-	   //      		//code block
-				// console.log("initiate");
-				// console.log(rollingSpider.status)
+	channel  : "my_channel",
+	callback : function(message) {
+			console.log( " > ", message );
+			console.log(message.command);
+			console.log(rollingSpider.status)
+			switch(message.command) {
+   //  		case "initiate":
+   //      		//code block
+			// console.log("initiate");
+			// console.log(rollingSpider.status)
 
-				// 	rollingSpider.flatTrim();
-	   //  			rollingSpider.startPing(function(){ console.log('Pinging...') });
-	   //  			rollingSpider.flatTrim();
-	   //  		break;
-	    		case "takeOff":
-	        		//code block
-			        console.log("take Off");
-					rollingSpider.flatTrim();
-					rollingSpider.takeOff();
-					rollingSpider.startPing();
-					console.log(rollingSpider.connected);
-					// cooldown();
-				break;
-	    		case "straight":
-	        		//code block
-			        console.log("flying straight");
-					rollingSpider.forward();
-					// cooldown();
-				break;
-	    		case "back":
-	        		//code block
-			        console.log("flying back");
-					rollingSpider.backward();
-					// cooldown();
-				break;
-	    		case "right":
-	        		//code block
-			        console.log("flying right");
-					rollingSpider.right();
-					// cooldown();
-				break;
-	    		case "left":
-	        		//code block
-			        console.log("flying left");
-					rollingSpider.left();
-					// cooldown();
+			// 	rollingSpider.flatTrim();
+   //  			rollingSpider.startPing(function(){ console.log('Pinging...') });
+   //  			rollingSpider.flatTrim();
+   //  		break;
+			case "takeOff":
+				//code block
+				console.log("take Off");
+				rollingSpider.flatTrim();
+				rollingSpider.takeOff();
+				rollingSpider.startPing();
+				console.log(rollingSpider.connected);
+				// cooldown();
+			break;
+			case "straight":
+				//code block
+				console.log("flying straight");
+				rollingSpider.forward();
+				// cooldown();
+			break;
+			case "back":
+				//code block
+				console.log("flying back");
+				rollingSpider.backward();
+				// cooldown();
+			break;
+			case "right":
+				//code block
+				console.log("flying right");
+				rollingSpider.right();
+				// cooldown();
+			break;
+			case "left":
+				//code block
+				console.log("flying left");
+				rollingSpider.left();
+				// cooldown();
 
-				break;	
-	    		case "up":
-	        		//code block
-			        console.log("flying up");
-					rollingSpider.up();
-					// cooldown();
-				break;
-	    		case "down":
-	        		//code block
-			        console.log("flying down");
-					rollingSpider.down();
-					// cooldown();
-				break;
-	    		case "turn left":
-	        		//code block
-			        console.log("turning left");
-					rollingSpider.turnLeft();
-					// cooldown();
-				break;
-	    		case "turn right":
-	        		//code block
-			        console.log("turning right");
-					rollingSpider.turnRight();
-					// cooldown();
-				break;
-	    		case "patrol":
-	        		//code block
-			        console.log("patroling....");
-					rollingSpider.patrol();
-					// cooldown();
-				break;
-				case "stop":
-	        		//code block
-	        		temporal.clear();
-					rollingSpider.land();
-					// cooldown();
-			    break;
-	    		default:
-	        		//default code block
-	    			console.log('Invalid Command');
-    			break;
-				}
+			break;
+			case "up":
+				//code block
+				console.log("flying up");
+				rollingSpider.up();
+				// cooldown();
+			break;
+			case "down":
+				//code block
+				console.log("flying down");
+				rollingSpider.down();
+				// cooldown();
+			break;
+			case "turn left":
+				//code block
+				console.log("turning left");
+				rollingSpider.turnLeft();
+				// cooldown();
+			break;
+			case "turn right":
+				//code block
+				console.log("turning right");
+				rollingSpider.turnRight();
+				// cooldown();
+			break;
+			case "patrol":
+				//code block
+				console.log("patroling....");
+				rollingSpider.patrol();
+				// cooldown();
+			break;
+			case "stop":
+				//code block
+				console.log('Stopping');
+				temporal.clear();
+				rollingSpider.land();
+				// cooldown();
+			break;
+			default:
+				//default code block
+				console.log('Invalid Command');
+			break;
 			}
-		});
+		}
+	});
 
 // function callback(i, strength){
 // 	console.log(i, strength);
