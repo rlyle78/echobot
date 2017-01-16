@@ -52,7 +52,7 @@ RollingSpider.prototype.patrol = function(){
       	}
       },
       {
-        delay: 5000,
+        delay: 3000,
         task: function () {
           temporal.clear();
           cooldown();
@@ -112,6 +112,11 @@ RollingSpider.prototype.patrol = function(){
 var rollingSpider = new RollingSpider();
 var temporal = require('temporal');
 // NEW CODE BELOW HERE
+
+rollingSpider.on("flyingStatusChange", function(stat) {
+	console.log('New status code: ', stat);
+	console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ State Change +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+});
 
 function cooldown() {
   ACTIVE = false;
@@ -233,6 +238,6 @@ pubnub.subscribe({
 			}
 		});
 
-function callback(i, strength){
-	console.log(i, strength);
-}
+// function callback(i, strength){
+// 	console.log(i, strength);
+// }
