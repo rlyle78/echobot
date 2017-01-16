@@ -152,7 +152,7 @@ Echobot.prototype.intentHandlers = {
                         response.tellWithCard("Could not connect", "Drone", "Could not connect");
                         console.log( "FAILED! RETRY PUBLISH!", e ); }
                 });          
-    },       
+    },           
     Back: function (intent, session, response) {
                var flyBackmessage = {
                         "command" : "back",
